@@ -40,10 +40,21 @@ return [
     // Portfolio Section
     'work_title' => 'Our Work',
     'work_subtitle' => 'Bringing digital dreams to reality',
-    'ecommerce' => 'E-commerce',
-    'modern_shopping' => 'Modern Shopping Experience',
-    'ecommerce_description' => 'A next-generation e-commerce platform with real-time inventory management and AI-powered recommendations.',
+    'ecommerce' => 'School Dashboard',
+    'modern_shopping' => 'School Management System (SMS)',
+    'ecommerce_description' => 'A modern school management dashboard featuring student, teacher, and payment tracking with a clean RTL interface built using Bootstrap 5 and interactive data visualization.',
     'view_project' => 'View Project',
+    //bright kids
+
+    'project2_name' => 'Bright Kids',
+    'project2_tag' => 'Website Design & Development',
+    'project2_description' => 'A modern kindergarten website showcasing educational programs for ages 2-5, featuring a dark glass-morphic design, RTL support, and interactive elements built with TailwindCSS.',
+    //Kahromaa
+
+    'project3_name' => 'Kahromaa',
+    'project3_tag' => 'Website Design & Development',
+    'project3_description' => 'A modern electrical contracting company website built with Tailwind CSS, showcasing electrical services, divisions, and contact information with bilingual support.
+',
 
     // Testimonials Section
     'client_stories' => 'Client Stories',

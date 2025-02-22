@@ -209,7 +209,7 @@
         <div class="portfolio-item featured" data-category="web">
             <div class="portfolio-content">
                 <div class="portfolio-preview">
-                    <img src="{{ asset('images/dashboard.png') }}" alt="E-commerce Platform" />
+                    <img src="{{ asset('storage/images/landing/images/dashboard.png') }}" alt="Image">
                     <div class="portfolio-rain"></div>
                 </div>
                 <div class="portfolio-info">
@@ -217,12 +217,8 @@
                     <h3>{{ __('messages.modern_shopping') }}</h3>
                     <p>{{ __('messages.ecommerce_description') }}</p>
                     <div class="project-meta">
-                        <div class="tech-pills">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <a href="#" class="view-project">
+
+                        <a href="{{route('project.school_dashboard')}}" class="view-project">
                             {{ __('messages.view_project') }}
                             <i class="fas fa-arrow-right"></i>
                         </a>
@@ -235,19 +231,17 @@
             <div class="portfolio-item" data-category="dashboard">
                 <div class="portfolio-content">
                     <div class="portfolio-preview">
-                        <img src="{{ asset('images/bright-kids.png') }}" alt="Analytics Dashboard" />
+                        <img src="{{ asset('storage/images/landing/images/bright-kids.png') }}"
+                            alt="Analytics Dashboard" />
                         <div class="portfolio-rain"></div>
                     </div>
                     <div class="portfolio-info">
-                        <span class="project-category">Dashboard</span>
-                        <h3>Analytics Platform</h3>
-                        <p>Real-time business intelligence dashboard with predictive analytics.</p>
+                        <span class="project-category">{{ __('messages.project2_tag') }}</span>
+                        <h3>{{ __('messages.project2_name') }}</h3>
+                        <p>{{ __('messages.project2_description') }}</p>
                         <div class="project-meta">
-                            <div class="tech-pills">
-                                <span>Vue.js</span>
-                                <span>D3.js</span>
-                            </div>
-                            <a href="#" class="view-project">
+
+                            <a href="https://bright-kids.site/" class="view-project">
                                 {{ __('messages.view_project') }}
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -259,19 +253,16 @@
             <div class="portfolio-item" data-category="mobile">
                 <div class="portfolio-content">
                     <div class="portfolio-preview">
-                        <img src="{{ asset('images/kahromaa.png') }}" alt="Fitness App" />
+                        <img src="{{ asset('storage/images/landing/images/kahromaa.png') }}" alt="Fitness App" />
                         <div class="portfolio-rain"></div>
                     </div>
                     <div class="portfolio-info">
-                        <span class="project-category">Mobile App</span>
-                        <h3>Fitness Tracker</h3>
-                        <p>Comprehensive fitness and nutrition tracking mobile application.</p>
+                        <span class="project-category">{{ __('messages.project3_tag') }}</span>
+                        <h3>{{ __('messages.project3_name') }}</h3>
+                        <p>{{ __('messages.project3_description') }}</p>
                         <div class="project-meta">
-                            <div class="tech-pills">
-                                <span>React Native</span>
-                                <span>Firebase</span>
-                            </div>
-                            <a href="#" class="view-project">
+
+                            <a href="https://kahromaa.com/" class="view-project">
                                 {{ __('messages.view_project') }}
                                 <i class="fas fa-arrow-right"></i>
                             </a>
@@ -521,7 +512,11 @@
             <div class="footer-brand">
                 <a href="#" class="footer-logo">
                     <i class="fas fa-cloud"></i>
-                    <span>سحاب كود</span>
+                    @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
+                    سحاب كود
+                    @else
+                    SahabCode
+                    @endif
                 </a>
                 <p class="footer-description">{{ __('messages.footer_text') }}</p>
                 <div class="footer-social">

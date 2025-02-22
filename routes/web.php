@@ -16,3 +16,4 @@ Route::group([
         return view('home');
     })->name('home');
 });
+Route::view('/dashboard-school', 'projects.school-dashboard')->name('project.school_dashboard');

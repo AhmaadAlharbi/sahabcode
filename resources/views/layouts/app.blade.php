@@ -16,7 +16,11 @@
     <nav class="navbar">
         <a href="#" class="logo">
             <i class="fas fa-cloud"></i>
+            @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
+            سحاب كود
+            @else
             SahabCode
+            @endif
         </a>
         <div class="nav-links">
             <a href="#" class="nav-link">{{ __('messages.home') }}</a>

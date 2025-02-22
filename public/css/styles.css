@@ -758,6 +758,7 @@ font-weight: bold;
   color: var(--accent);
   margin-bottom: 1rem;
   display: inline-block;
+  font-family: "Poppins",'serif';
 }
 
 .portfolio-info h3 {
