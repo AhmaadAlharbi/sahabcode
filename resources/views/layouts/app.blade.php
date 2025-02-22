@@ -31,14 +31,57 @@
         </div>
 
         <!-- Language Switcher -->
+        <!-- Language Switcher -->
         <div class="language-switcher">
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <a href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"
-                class="{{ LaravelLocalization::getCurrentLocale() == $localeCode ? 'active' : '' }}">
-                {{ $properties['native'] }}
+            @php
+            $currentLocale = LaravelLocalization::getCurrentLocale();
+            $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
+            $alternateProperties = LaravelLocalization::getSupportedLocales()[$alternateLocale];
+            @endphp
+
+            <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}" class="lang-link">
+                {{ $alternateProperties['native'] }}
             </a>
-            @endforeach
         </div>
+
+        <style>
+            .language-switcher {
+                margin-left: 2rem;
+            }
+
+            .lang-link {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+
+            .lang-link:hover {
+                color: white;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            /* RTL Support */
+            [dir="rtl"] .language-switcher {
+                margin-left: 0;
+                margin-right: 2rem;
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .language-switcher {
+                    margin: 1rem 0;
+                }
+
+                .lang-link {
+                    padding: 0.4rem 0.8rem;
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
 
         <button class="menu-btn">
             <i class="fas fa-bars"></i>

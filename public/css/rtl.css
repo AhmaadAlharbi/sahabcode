@@ -40,7 +40,7 @@ body {
     font-style: normal;
   }
 .navbar .nav-links {
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 .logo {
