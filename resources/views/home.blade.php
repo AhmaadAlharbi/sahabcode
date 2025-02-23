@@ -41,6 +41,7 @@
 </div>
 
 <!-- About Section -->
+<!-- About Section -->
 <section id="about" class="about">
     <div class="about-container">
         <h2 class="section-title">{{ __('messages.about_title') }}</h2>
@@ -50,20 +51,6 @@
             <div class="about-image">
                 <div class="profile-cloud">
                     <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="floating-technologies">
-                    <div class="tech-cloud" style="--delay: 0s">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <div class="tech-cloud" style="--delay: 1s">
-                        <i class="fab fa-node-js"></i>
-                    </div>
-                    <div class="tech-cloud" style="--delay: 2s">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <div class="tech-cloud" style="--delay: 3s">
-                        <i class="fab fa-aws"></i>
-                    </div>
                 </div>
             </div>
 
@@ -79,32 +66,94 @@
                 </div>
 
                 <div class="expertise-clouds">
-                    <div class="expertise-item">
-                        <i class="fab fa-html5"></i> <span>HTML5</span>
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-html5 skill-icon"></i>
+                                <span>HTML5</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-css3-alt"></i> <span>CSS</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-css3-alt skill-icon"></i>
+                                <span>CSS</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-js"></i> <span>JavaScript</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-js skill-icon"></i>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-php"></i> <span>PHP</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-php skill-icon"></i>
+                                <span>PHP</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-laravel"></i> <span>Laravel</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-laravel skill-icon"></i>
+                                <span>Laravel</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-vuejs"></i> <span>Vue JS</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-vuejs skill-icon"></i>
+                                <span>Vue JS</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-bootstrap"></i> <span>Bootstrap</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-bootstrap skill-icon"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fas fa-database"></i> <span>MYSQL</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fas fa-database skill-icon"></i>
+                                <span>MYSQL</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="expertise-item">
-                        <i class="fab fa-git-alt"></i> <span>Git</span>
+
+                    <div class="cloud-skill">
+                        <div class="cloud-shape">
+                            <i class="fas fa-cloud cloud-bg"></i>
+                            <div class="skill-content">
+                                <i class="fab fa-git-alt skill-icon"></i>
+                                <span>Git</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,81 +248,83 @@
 </section>
 
 <!-- Portfolio Section -->
-<section id="work" class="portfolio">
-    <div class="portfolio-header">
-        <h2 class="section-title">{{ __('messages.work_title') }}</h2>
-        <p class="section-subtitle">{{ __('messages.work_subtitle') }}</p>
-    </div>
+<!-- Portfolio Section -->
+<section id="work" class="portfolio-atmosphere">
+    <div class="atmosphere-container">
+        <div class="portfolio-header">
+            <h2 class="section-title">{{ __('messages.work_title') }}</h2>
+            <p class="section-subtitle">{{ __('messages.work_subtitle') }}</p>
+        </div>
 
-    <div class="portfolio-showcase">
-        <div class="portfolio-item featured" data-category="web">
-            <div class="portfolio-content">
-                <div class="portfolio-preview">
-                    <img src="{{ asset('storage/images/landing/images/dashboard.png') }}" alt="Image">
-                    <div class="portfolio-rain"></div>
+        <div class="weather-grid">
+            <!-- Featured Project -->
+            <div class="weather-card">
+                <div class="weather-scene">
+                    <div class="cloud-formation">
+                        <i class="fas fa-cloud primary-cloud"></i>
+                        <i class="fas fa-cloud secondary-cloud"></i>
+                        <i class="fas fa-cloud accent-cloud"></i>
+                    </div>
                 </div>
-                <div class="portfolio-info">
-                    <span class="project-category">{{ __('messages.ecommerce') }}</span>
-                    <h3>{{ __('messages.modern_shopping') }}</h3>
-                    <p>{{ __('messages.ecommerce_description') }}</p>
-                    <div class="project-meta">
+                <div class="project-capsule">
+                    <img src="{{ asset('storage/images/landing/images/dashboard.png') }}" alt="Dashboard Project">
+                    <div class="project-info">
+                        <span class="weather-badge">{{ __('messages.featured_project') }}</span>
+                        <h3>{{ __('messages.modern_shopping') }}</h3>
+                        <p>{{ __('messages.ecommerce_description') }}</p>
+                        <a href="{{route('project.school_dashboard')}}" class="atmosphere-link">
+                            {{ __('messages.explore_project') }}
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                        <a href="{{route('project.school_dashboard')}}" class="view-project">
-                            {{ __('messages.view_project') }}
+            <!-- Project 2 -->
+            <div class="weather-card">
+                <div class="weather-scene">
+                    <div class="cloud-formation">
+                        <i class="fas fa-cloud primary-cloud"></i>
+                        <i class="fas fa-cloud secondary-cloud"></i>
+                        <i class="fas fa-cloud accent-cloud"></i>
+                    </div>
+                </div>
+                <div class="project-capsule">
+                    <img src="{{ asset('storage/images/landing/images/bright-kids.png') }}" alt="Bright Kids Project">
+                    <div class="project-info">
+                        <h3>{{ __('messages.project2_name') }}</h3>
+                        <p>{{ __('messages.project2_description') }}</p>
+                        <a href="https://bright-kids.site/" class="atmosphere-link">
+                            {{ __('messages.explore_project') }}
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="weather-card">
+                <div class="weather-scene">
+                    <div class="cloud-formation">
+                        <i class="fas fa-cloud primary-cloud"></i>
+                        <i class="fas fa-cloud secondary-cloud"></i>
+                        <i class="fas fa-cloud accent-cloud"></i>
+                    </div>
+                </div>
+                <div class="project-capsule">
+                    <img src="{{ asset('storage/images/landing/images/kahromaa.png') }}" alt="Kahromaa Project">
+                    <div class="project-info">
+                        <h3>{{ __('messages.project3_name') }}</h3>
+                        <p>{{ __('messages.project3_description') }}</p>
+                        <a href="https://kahromaa.com/" class="atmosphere-link">
+                            {{ __('messages.explore_project') }}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="portfolio-row">
-            <div class="portfolio-item" data-category="dashboard">
-                <div class="portfolio-content">
-                    <div class="portfolio-preview">
-                        <img src="{{ asset('storage/images/landing/images/bright-kids.png') }}"
-                            alt="Analytics Dashboard" />
-                        <div class="portfolio-rain"></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="project-category">{{ __('messages.project2_tag') }}</span>
-                        <h3>{{ __('messages.project2_name') }}</h3>
-                        <p>{{ __('messages.project2_description') }}</p>
-                        <div class="project-meta">
-
-                            <a href="https://bright-kids.site/" class="view-project">
-                                {{ __('messages.view_project') }}
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-category="mobile">
-                <div class="portfolio-content">
-                    <div class="portfolio-preview">
-                        <img src="{{ asset('storage/images/landing/images/kahromaa.png') }}" alt="Fitness App" />
-                        <div class="portfolio-rain"></div>
-                    </div>
-                    <div class="portfolio-info">
-                        <span class="project-category">{{ __('messages.project3_tag') }}</span>
-                        <h3>{{ __('messages.project3_name') }}</h3>
-                        <p>{{ __('messages.project3_description') }}</p>
-                        <div class="project-meta">
-
-                            <a href="https://kahromaa.com/" class="view-project">
-                                {{ __('messages.view_project') }}
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <div class="ambient-clouds"></div>
 </section>
 
 <!-- Testimonials Section -->
