@@ -297,16 +297,16 @@
   .navbar.scrolled {
     animation: fadeInDown 0.3s ease forwards;
   }
+  /* hero */
   .container {
     width: 100%;
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
-        overflow: hidden; /* Add this */
-
+    overflow: hidden;
   }
-
+  
   .content {
     padding: 4rem;
     display: flex;
@@ -315,7 +315,7 @@
     gap: 2rem;
     z-index: 10;
   }
-
+  
   .title {
     font-size: 4.5rem;
     font-weight: 700;
@@ -325,37 +325,35 @@
     -webkit-text-fill-color: transparent;
     font-family: "Jura", serif;
     letter-spacing: 2px;
-
   }
-
+  
   .subtitle {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.428);
+    color: rgba(255, 255, 255, 0.665);
     line-height: 1.6;
     max-width: 500px;
     font-family: "Poppins", serif;
   }
-
-  .cta-group {
-    display: flex;
-    gap: 1rem;
-    font-family: "Poppins", serif;
-
-  }
-  .btn-primary{
-    background-color: rgb(243, 181, 23);
-    color: rgb(0, 0, 0);
-  }
-  .btn-secondary{
-    color: white;
-  }
+  
+  /* CTA Buttons Styles */
   .cta-container {
     display: flex;
     gap: 2rem;
     animation: slideUp 0.8s ease-out 0.4s backwards;
-}
-
-.cta-button {
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .cta-button {
     text-decoration: none;
     padding: 1rem 2.5rem;
     border-radius: 100px;
@@ -365,27 +363,24 @@
     position: relative;
     overflow: hidden;
     font-family: "Poppins", serif;
-}
-
-[dir="rtl"] .cta-button {
-    font-family: "Tajawal", serif;
-}
-
-.button-content {
+  }
+  
+  .button-content {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     position: relative;
     z-index: 1;
-}
-
-.cta-button.primary {
+  }
+  
+  /* Primary Button */
+  .cta-button.primary {
     background: #fbbf24;
     color: #1a1a1a;
     box-shadow: 0 8px 30px rgba(251, 191, 36, 0.3);
-}
-
-.cta-button.primary::before {
+  }
+  
+  .cta-button.primary::before {
     content: '';
     position: absolute;
     top: 0;
@@ -395,151 +390,206 @@
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
-}
-
-.cta-button.primary:hover {
+  }
+  
+  .cta-button.primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 40px rgba(251, 191, 36, 0.4);
-}
-
-.cta-button.primary:hover::before {
+  }
+  
+  .cta-button.primary:hover::before {
     transform: translateX(100%);
-}
-
-.cta-button.secondary {
+  }
+  
+  /* Secondary Button */
+  .cta-button.secondary {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta-button.secondary:hover {
+  }
+  
+  .cta-button.secondary:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
     border-color: rgba(255, 255, 255, 0.3);
-}
-
-  .cta:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
-
+  
+  /* Enhanced Scene and Cloud Animations */
   .scene {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
+  
+  @keyframes floatCloud {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(10px, -15px) rotate(2deg);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translate(20px, 0) rotate(0deg);
     }
-  }
-
-  @keyframes rain {
-    0% {
-      transform: translateY(-100vh);
+    75% {
+      transform: translate(10px, 15px) rotate(-2deg);
     }
     100% {
-      transform: translateY(100vh);
+      transform: translate(0, 0) rotate(0deg);
     }
   }
-
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  
   .cloud {
     position: absolute;
     color: var(--accent);
     opacity: 0.8;
-    animation: float 3s ease-in-out infinite;
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+    will-change: transform;
   }
-
+  
+  .cloud i {
+    transition: all 0.3s ease;
+  }
+  
   .cloud:nth-child(1) {
     font-size: 8rem;
     top: 10%;
     left: 10%;
-    animation-delay: 0s;
+    animation: floatCloud 8s ease-in-out infinite;
   }
+  
   .cloud:nth-child(2) {
     font-size: 6rem;
     top: 30%;
     left: 30%;
-    animation-delay: -1s;
+    animation: floatCloud 12s ease-in-out infinite -2s;
   }
+  
   .cloud:nth-child(3) {
     font-size: 7rem;
     top: 50%;
     left: 20%;
-    animation-delay: -2s;
+    animation: floatCloud 10s ease-in-out infinite -4s;
   }
+  
   .cloud:nth-child(4) {
     font-size: 5rem;
     top: 70%;
     left: 40%;
-    animation-delay: -1.5s;
+    animation: floatCloud 14s ease-in-out infinite -6s;
   }
+  
   .cloud:nth-child(5) {
     font-size: 9rem;
     top: 25%;
     left: 60%;
-    animation-delay: -0.5s;
+    animation: floatCloud 16s ease-in-out infinite -3s;
   }
+  
   .cloud:nth-child(6) {
     font-size: 4rem;
     top: 45%;
     left: 70%;
-    animation-delay: -2.5s;
+    animation: floatCloud 11s ease-in-out infinite -5s;
   }
+  
   .cloud:nth-child(7) {
     font-size: 6rem;
     top: 65%;
     left: 50%;
-    animation-delay: -1.8s;
+    animation: floatCloud 13s ease-in-out infinite -7s;
   }
+  
   .cloud:nth-child(8) {
     font-size: 5rem;
     top: 85%;
     left: 80%;
-    animation-delay: -0.8s;
+    animation: floatCloud 15s ease-in-out infinite -1s;
   }
-
+  
+  /* Cloud hover effects */
+  .cloud:hover {
+    animation-play-state: paused;
+  }
+  
+  .cloud:hover i {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+  
+  /* Rain effect */
   .rain {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    pointer-events: none;
   }
-
+  
+  @keyframes rainDrop {
+    0% {
+      transform: translateY(-100vh) skew(-20deg);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.5;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(100vh) skew(-20deg);
+      opacity: 0;
+    }
+  }
+  
   .drop {
     position: absolute;
     width: 2px;
     height: 100px;
     background: linear-gradient(transparent, rgba(255, 255, 255, 0.5));
-    animation: rain 1s linear infinite;
+    animation: rainDrop 1.5s linear infinite;
   }
-
+  
+  /* RTL Support for Buttons */
+  [dir="rtl"] .cta-button {
+    font-family: "Tajawal", serif;
+  }
+  
+  /* Responsive design */
   @media (max-width: 768px) {
     .container {
       grid-template-columns: 1fr;
     }
-
+  
     .content {
       padding: 2rem;
       text-align: center;
     }
-
+  
     .title {
       font-size: 3rem;
     }
-
-    .cta-group {
+  
+    .cta-container {
       justify-content: center;
+      flex-wrap: wrap;
     }
-
+  
     .scene {
       position: absolute;
       width: 100%;
@@ -548,7 +598,26 @@
       opacity: 0.5;
     }
   }
- /* About section */
+  
+  /* Mobile optimization */
+  @media (max-width: 480px) {
+    .cta-button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+  
+    .button-content {
+      justify-content: center;
+    }
+  
+    .cta-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+ /* end hero section */
 /* About section */
 .about {
   min-height: 100vh;

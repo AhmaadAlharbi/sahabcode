@@ -43,12 +43,18 @@ body {
     font-weight: 800;
     font-size: 6.5rem;
 }
-
-.subtitle, 
-.cta-group {
+/* Adjust font size for small screens */
+@media (max-width: 576px) {  /* Bootstrap 'sm' breakpoint */
+    .title {
+        font-size: 4rem;  /* Adjust as needed */
+    }
+}
+.subtitle {
   font-size: 1.6rem;
     font-family: "Tajawal", serif;
     font-weight: 400;
+    color: rgba(255, 255, 255, 0.665);
+
 }
 
 /* About Section RTL */
