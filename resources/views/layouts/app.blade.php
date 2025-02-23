@@ -22,17 +22,9 @@
             SahabCode
             @endif
         </a>
-        <div class="nav-links">
-            <a href="#" class="nav-link">{{ __('messages.home') }}</a>
-            <a href="#services" class="nav-link">{{ __('messages.services') }}</a>
-            <a href="#work" class="nav-link">{{ __('messages.work') }}</a>
-            <a href="#about" class="nav-link">{{ __('messages.about') }}</a>
-            <a href="#contact" class="nav-link">{{ __('messages.contact') }}</a>
-        </div>
 
-        <!-- Language Switcher -->
-        <!-- Language Switcher -->
-        <div class="language-switcher">
+        <!-- Desktop Language Switcher -->
+        {{-- <div class="language-switcher desktop-lang">
             @php
             $currentLocale = LaravelLocalization::getCurrentLocale();
             $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
@@ -40,48 +32,34 @@
             @endphp
 
             <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}" class="lang-link">
+                <i class="fas fa-globe"></i>
                 {{ $alternateProperties['native'] }}
             </a>
+        </div> --}}
+
+        <div class="nav-links">
+            <!-- Mobile Language Switcher (appears at top of menu) -->
+
+
+            <a href="#" class="nav-link">{{ __('messages.home') }}</a>
+            <a href="#services" class="nav-link">{{ __('messages.services') }}</a>
+            <a href="#work" class="nav-link">{{ __('messages.work') }}</a>
+            <a href="#about" class="nav-link">{{ __('messages.about') }}</a>
+            <a href="#contact" class="nav-link">{{ __('messages.contact') }}</a>
+            <div class="language-switcher">
+                @php
+                $currentLocale = LaravelLocalization::getCurrentLocale();
+                $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
+                $alternateProperties = LaravelLocalization::getSupportedLocales()[$alternateLocale];
+                @endphp
+
+                <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}"
+                    class="lang-link">
+                    <i class="fas fa-globe"></i>
+                    {{ $alternateProperties['native'] }}
+                </a>
+            </div>
         </div>
-
-        <style>
-            .language-switcher {
-                margin-left: 2rem;
-            }
-
-            .lang-link {
-                color: rgba(255, 255, 255, 0.8);
-                text-decoration: none;
-                padding: 0.5rem 1rem;
-                border-radius: 6px;
-                transition: all 0.3s ease;
-                font-weight: 500;
-                font-size: 0.9rem;
-            }
-
-            .lang-link:hover {
-                color: white;
-                background: rgba(255, 255, 255, 0.1);
-            }
-
-            /* RTL Support */
-            [dir="rtl"] .language-switcher {
-                margin-left: 0;
-                margin-right: 2rem;
-            }
-
-            /* Mobile Responsive */
-            @media (max-width: 768px) {
-                .language-switcher {
-                    margin: 1rem 0;
-                }
-
-                .lang-link {
-                    padding: 0.4rem 0.8rem;
-                    font-size: 0.85rem;
-                }
-            }
-        </style>
 
         <button class="menu-btn">
             <i class="fas fa-bars"></i>
