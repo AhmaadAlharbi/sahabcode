@@ -6,9 +6,19 @@
     <div class="content">
         <h1 class="title">{{ __('messages.main_title') }}</h1>
         <p class="subtitle">{{ __('messages.subtitle') }}</p>
-        <div class="cta-group">
-            <a href="#work" class="cta btn-primary">{{ __('messages.view_work') }}</a>
-            <a href="#contact" class="cta btn-secondary">{{ __('messages.get_started') }}</a>
+        <div class="cta-container">
+            <a href="#work" class="cta-button primary">
+                <span class="button-content">
+                    <i class="fas fa-eye"></i>
+                    <span>{{ __('messages.view_work') }}</span>
+                </span>
+            </a>
+            <a href="#contact" class="cta-button secondary">
+                <span class="button-content">
+                    <i class="fas fa-rocket"></i>
+                    <span>{{ __('messages.get_started') }}</span>
+                </span>
+            </a>
         </div>
     </div>
     <div class="scene">
