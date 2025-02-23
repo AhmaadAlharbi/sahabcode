@@ -323,14 +323,13 @@
     background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
     font-family: "Jura", serif;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 
   }
 
   .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.428);
     line-height: 1.6;
     max-width: 500px;
@@ -580,7 +579,7 @@ font-weight: bold;
 
 .about-card h3 {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 1rem;
   font-family: "Jura", serif;
 }
@@ -588,6 +587,7 @@ font-weight: bold;
 .about-card p {
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
+  font-size: 1.3rem;
   font-family: "Poppins", serif;
 }
 
@@ -846,7 +846,7 @@ font-weight: bold;
 
 .service-card h3 {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
     font-family: "Jura", serif;
 }
@@ -859,6 +859,7 @@ font-weight: bold;
 .service-features li {
     margin-bottom: 1rem;
     display: flex;
+    font-size: 1.2rem;
     align-items: center;
     gap: 0.8rem;
     font-family: "Poppins", serif;
@@ -913,7 +914,8 @@ font-weight: bold;
   /* start portfolio section */
   .portfolio-atmosphere {
     padding: 8rem 2rem;
-    background: var(--primary);
+    /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+    background-color: var(--primary);
     position: relative;
     overflow: hidden;
     min-height: 100vh;
@@ -926,21 +928,28 @@ font-weight: bold;
     z-index: 2;
 }
 
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
 .weather-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .weather-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border-radius: 30px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
     transition: all 0.5s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%; /* Ensure all cards are same height */
+    display: flex;
+    flex-direction: column;
 }
 
 .weather-card:hover {
@@ -950,7 +959,7 @@ font-weight: bold;
 }
 
 .weather-scene {
-    height: 150px;
+    height: 120px;
     position: relative;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
@@ -989,37 +998,11 @@ font-weight: bold;
     animation: floatCloud 4s ease-in-out infinite 2s;
 }
 
-.weather-card:hover .cloud-formation i {
-    opacity: 1;
-}
-
-.weather-card:hover .primary-cloud {
-    transform: translateY(-10px);
-}
-
-.weather-card:hover .secondary-cloud {
-    transform: translateX(-50px) translateY(-15px);
-}
-
-.weather-card:hover .accent-cloud {
-    transform: translateX(50px) translateY(5px);
-}
-
 .project-capsule {
     padding: 2rem;
-}
-
-.project-capsule img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    transition: transform 0.5s ease;
-}
-
-.weather-card:hover .project-capsule img {
-    transform: scale(1.05);
+    flex: 1; /* Allow content to fill available space */
+    display: flex;
+    flex-direction: column;
 }
 
 .weather-badge {
@@ -1030,20 +1013,38 @@ font-weight: bold;
     color: white;
     display: inline-block;
     margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.project-capsule img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.project-info {
+    flex: 1; /* Allow content to fill available space */
+    display: flex;
+    flex-direction: column;
 }
 
 .project-info h3 {
     color: white;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-family: "Jura", serif;
+    font-size: 1.8rem;
+    font-family:"Jura",sans-serif;
 }
 
 .project-info p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.665);
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    font-family: "Poppins", serif;
+    flex: 1; /* Push link to bottom */
+    font-size: 1.2rem;
+    font-family: "Poppins",'serif';
 }
 
 .atmosphere-link {
@@ -1053,7 +1054,8 @@ font-weight: bold;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
-    font-family: "Poppins", serif;
+    margin-top: auto; /* Push to bottom of container */
+    width: fit-content;
 }
 
 .atmosphere-link:hover {
@@ -1080,7 +1082,8 @@ font-weight: bold;
     }
 }
 
-@media (max-width: 1024px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
     .weather-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1093,10 +1096,15 @@ font-weight: bold;
 
     .weather-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .weather-scene {
-        height: 120px;
+        height: 100px;
+    }
+
+    .project-capsule {
+        padding: 1.5rem;
     }
 }
   /* END portfolio section */
@@ -1326,35 +1334,57 @@ font-weight: bold;
   .contact {
     padding: 8rem 2rem;
     min-height: 100vh;
-    background: var(--primary);
+    /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+    background-color: var(--primary);
     position: relative;
     overflow: hidden;
-  }
-  
-  .contact-container {
+}
+
+.contact-container {
     max-width: 1600px;
     width: 90%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
-  }
-  
-  .contact-content {
+}
+
+.contact-content {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
-    align-items: center;
-  }
-  
-  .contact-info {
+    align-items: start;
+}
+
+/* Contact Info Styles */
+.contact-info {
     color: white;
-  }
-  
-  .contact-details {
+}
+
+[dir="ltr"] .section-title {
+    font-family: "Jura", sans-serif;
+    font-size: 3rem;
+}
+
+[dir="rtl"] .section-title {
+    font-family: "Zain", sans-serif;
+    font-size: 3.5rem;
+}
+
+[dir="ltr"] .section-subtitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+}
+
+[dir="rtl"] .section-subtitle {
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.4rem;
+}
+
+.contact-details {
     margin: 3rem 0;
-  }
-  
-  .contact-item {
+}
+
+.contact-item {
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
@@ -1365,250 +1395,278 @@ font-weight: bold;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease;
-  }
-  
-  .contact-item:hover {
+}
+
+.contact-item:hover {
     transform: translateY(-5px);
-  }
-  
-  .contact-item i {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-item i {
     font-size: 1.5rem;
     color: var(--accent);
     background: rgba(255, 255, 255, 0.1);
     padding: 1rem;
     border-radius: 50%;
-  }
-  
-  .contact-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-family: "Jura" ,serif;
-  }
-  
-  .contact-item p {
-    color: rgba(255, 255, 255, 0.9);
-    font-family: "Poppins", serif;
+}
 
-  }
-  
-  .social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .social-link {
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: white;
-    text-decoration: none;
+[dir="ltr"] .contact-item h3 {
+    font-family: "Jura", sans-serif;
+    font-size: 1.3rem;
+}
+
+[dir="rtl"] .contact-item h3 {
+    font-family: "Zain", sans-serif;
+    font-size: 1.5rem;
+}
+
+[dir="ltr"] .contact-item p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+}
+
+[dir="rtl"] .contact-item p {
+    font-family: "Tajawal", sans-serif;
     font-size: 1.2rem;
-    transition: all 0.3s ease;
-  }
-  
-  .social-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-  }
-  
-  .contact-form-wrapper {
-    position: relative;
-  }
-  
-  .form-cloud {
+}
+
+/* Form Styles */
+.form-cloud {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 3rem;
     position: relative;
-  }
-  
-  .contact-form {
+}
+
+.contact-form {
     display: grid;
     gap: 2rem;
-  }
-  
-  .form-group {
+}
+
+.input-group {
     position: relative;
-  }
-  
-  .input-group {
-    position: relative;
-  }
-  
-  .input-group input,
-  .input-group select,
-  .input-group textarea {
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
     width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 1.2rem 1rem 1.2rem 3rem;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+    border-radius: 12px;
     color: white;
-    font-size: 1rem;
     transition: all 0.3s ease;
-  }
-  
-  .input-group textarea {
+}
+
+[dir="ltr"] .input-group input,
+[dir="ltr"] .input-group select,
+[dir="ltr"] .input-group textarea {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+}
+
+[dir="rtl"] .input-group input,
+[dir="rtl"] .input-group select,
+[dir="rtl"] .input-group textarea {
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.2rem;
+    padding: 1.2rem 3rem 1.2rem 1rem;
+}
+
+.input-group textarea {
     height: 150px;
     resize: none;
-  }
-  
-  .input-group label {
+}
+
+.input-group label {
     position: absolute;
-    left: 3rem;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
     transition: all 0.3s ease;
-  }
-  
-  .input-group textarea ~ label {
+}
+
+[dir="ltr"] .input-group label {
+    left: 3rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+}
+
+[dir="rtl"] .input-group label {
+    right: 3rem;
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.2rem;
+}
+
+.input-group textarea ~ label {
     top: 1.5rem;
     transform: none;
-  }
-  
-  .input-group i {
+}
+
+.input-group i {
     position: absolute;
-    left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, 0.6);
-  }
-  
-  .input-group textarea ~ i {
+    font-size: 1.2rem;
+}
+
+[dir="ltr"] .input-group i {
+    left: 1rem;
+}
+
+[dir="rtl"] .input-group i {
+    right: 1rem;
+}
+
+.input-group textarea ~ i {
     top: 1.5rem;
     transform: none;
-  }
-  
-  .input-group input:focus,
-  .input-group select:focus,
-  .input-group textarea:focus {
+}
+
+/* Form Focus & Fill States */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
     background: rgba(255, 255, 255, 0.15);
     border-color: var(--accent);
-  }
-  
-  .input-group input:focus ~ label,
-  .input-group select:focus ~ label,
-  .input-group textarea:focus ~ label,
-  .input-group input:not(:placeholder-shown) ~ label,
-  .input-group select:valid ~ label,
-  .input-group textarea:not(:placeholder-shown) ~ label {
-    top: -1rem;
-    left: 0;
-    font-size: 0.875rem;
+}
+
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group select:valid ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
+.input-group input:focus ~ label,
+.input-group select:focus ~ label,
+.input-group textarea:focus ~ label {
+    top: -0.8rem;
+    font-size: 0.9rem;
     color: var(--accent);
-  }
-  
-  .submit-btn {
+    background: rgba(59, 130, 246, 0.95);
+    padding: 0 0.5rem;
+    border-radius: 4px;
+}
+
+[dir="ltr"] .input-group input:not(:placeholder-shown) ~ label,
+[dir="ltr"] .input-group select:valid ~ label,
+[dir="ltr"] .input-group textarea:not(:placeholder-shown) ~ label,
+[dir="ltr"] .input-group input:focus ~ label,
+[dir="ltr"] .input-group select:focus ~ label,
+[dir="ltr"] .input-group textarea:focus ~ label {
+    left: 1rem;
+}
+
+[dir="rtl"] .input-group input:not(:placeholder-shown) ~ label,
+[dir="rtl"] .input-group select:valid ~ label,
+[dir="rtl"] .input-group textarea:not(:placeholder-shown) ~ label,
+[dir="rtl"] .input-group input:focus ~ label,
+[dir="rtl"] .input-group select:focus ~ label,
+[dir="rtl"] .input-group textarea:focus ~ label {
+    right: 1rem;
+}
+
+/* Submit Button */
+.submit-btn {
     background: white;
     color: var(--primary);
     border: none;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2.5rem;
     border-radius: 25px;
-    font-size: 1rem;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    max-width: 200px;
+    max-width: fit-content;
     margin-left: auto;
-  }
-  
-  .submit-btn:hover {
+}
+
+[dir="ltr"] .submit-btn {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+}
+
+[dir="rtl"] .submit-btn {
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.2rem;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+.submit-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-clouds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .contact-cloud {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    filter: blur(50px);
-  }
-  
-  .contact-cloud:nth-child(1) {
-    width: 500px;
-    height: 500px;
-    top: -10%;
-    right: -10%;
-    animation: float-contact 20s ease-in-out infinite;
-  }
-  
-  .contact-cloud:nth-child(2) {
-    width: 400px;
-    height: 400px;
-    bottom: -10%;
-    left: -10%;
-    animation: float-contact 25s ease-in-out infinite reverse;
-  }
-  
-  .contact-cloud:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: float-contact 30s ease-in-out infinite;
-  }
-  
-  @keyframes float-contact {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(30px, -30px) rotate(5deg); }
-  }
-  
-  @media (max-width: 1024px) {
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
     .contact-content {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
-  
+
     .contact-info {
-      text-align: center;
+        text-align: center;
     }
-  
+
     .contact-details {
-      max-width: 600px;
-      margin: 3rem auto;
+        max-width: 600px;
+        margin: 3rem auto;
     }
-  
-    .social-links {
-      justify-content: center;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .contact {
-      padding: 6rem 1rem;
-    }
-  
+
     .contact-item {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
     }
-  }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 6rem 1rem;
+    }
+
+    .form-cloud {
+        padding: 2rem;
+    }
+
+    [dir="ltr"] .section-title {
+        font-size: 2.5rem;
+    }
+
+    [dir="rtl"] .section-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+        padding: 1rem 1rem 1rem 2.5rem;
+    }
+
+    [dir="rtl"] .input-group input,
+    [dir="rtl"] .input-group select,
+    [dir="rtl"] .input-group textarea {
+        padding: 1rem 2.5rem 1rem 1rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        max-width: none;
+    }
+}
   /* END contact section */
   /* start footer section */
   .footer {

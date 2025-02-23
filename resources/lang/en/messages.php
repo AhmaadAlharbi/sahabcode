@@ -8,7 +8,7 @@ return [
     'work' => 'Work',
     'about' => 'About',
     'contact' => 'Contact',
-    'main_title' => 'Sahab Code',
+    'main_title' => 'SahabCode',
     'subtitle' => 'At SahabCode, we turn your ideas into clouds of creativity, and our code makes them rain down with innovation and real-world impact.',
     'view_work' => 'View Our Work',
     'get_started' => 'Get Started',

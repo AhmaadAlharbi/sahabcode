@@ -257,7 +257,7 @@
         </div>
 
         <div class="weather-grid">
-            <!-- Featured Project -->
+            <!-- Each project card has identical structure -->
             <div class="weather-card">
                 <div class="weather-scene">
                     <div class="cloud-formation">
@@ -267,20 +267,20 @@
                     </div>
                 </div>
                 <div class="project-capsule">
+                    {{-- <span class="weather-badge">{{ __('messages.featured_project') }}</span> --}}
                     <img src="{{ asset('storage/images/landing/images/dashboard.png') }}" alt="Dashboard Project">
                     <div class="project-info">
-                        <span class="weather-badge">{{ __('messages.featured_project') }}</span>
                         <h3>{{ __('messages.modern_shopping') }}</h3>
                         <p>{{ __('messages.ecommerce_description') }}</p>
                         <a href="{{route('project.school_dashboard')}}" class="atmosphere-link">
-                            {{ __('messages.explore_project') }}
+                            {{ __('messages.view_project') }}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 2 - Same structure -->
             <div class="weather-card">
                 <div class="weather-scene">
                     <div class="cloud-formation">
@@ -290,19 +290,20 @@
                     </div>
                 </div>
                 <div class="project-capsule">
+                    {{-- <span class="weather-badge">{{ __('messages.project2_name') }}</span> --}}
                     <img src="{{ asset('storage/images/landing/images/bright-kids.png') }}" alt="Bright Kids Project">
                     <div class="project-info">
                         <h3>{{ __('messages.project2_name') }}</h3>
                         <p>{{ __('messages.project2_description') }}</p>
                         <a href="https://bright-kids.site/" class="atmosphere-link">
-                            {{ __('messages.explore_project') }}
+                            {{ __('messages.view_project') }}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 3 - Same structure -->
             <div class="weather-card">
                 <div class="weather-scene">
                     <div class="cloud-formation">
@@ -312,12 +313,13 @@
                     </div>
                 </div>
                 <div class="project-capsule">
+                    {{-- <span class="weather-badge">{{ __('messages.project3_name') }}</span> --}}
                     <img src="{{ asset('storage/images/landing/images/kahromaa.png') }}" alt="Kahromaa Project">
                     <div class="project-info">
                         <h3>{{ __('messages.project3_name') }}</h3>
                         <p>{{ __('messages.project3_description') }}</p>
                         <a href="https://kahromaa.com/" class="atmosphere-link">
-                            {{ __('messages.explore_project') }}
+                            {{ __('messages.view_project') }}
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -472,25 +474,25 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h3>{{ __('messages.phone') }}</h3>
-                            <p>+965 65579000</p>
+                            <p><span class="phone-number">+965 65579000</span></p>
                         </div>
                     </div>
                 </div>
 
-                <div class="social-links">
-                    <a href="#" class="social-link">
+                {{-- <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="#" class="social-link" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="#" class="social-link" aria-label="Dribbble">
                         <i class="fab fa-dribbble"></i>
                     </a>
-                </div>
+                </div> --}}
             </div>
 
             <div class="contact-form-wrapper">
@@ -498,7 +500,7 @@
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" id="name" required />
+                                <input type="text" id="name" required placeholder=" " />
                                 <label for="name">{{ __('messages.your_name') }}</label>
                                 <i class="fas fa-user"></i>
                             </div>
@@ -506,7 +508,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" id="email" required />
+                                <input type="email" id="email" required placeholder=" " />
                                 <label for="email">{{ __('messages.your_email') }}</label>
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -515,7 +517,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <select id="service" required>
-                                    <option value="" selected disabled hidden></option>
+                                    <option value="" disabled selected></option>
                                     <option value="web">{{ __('messages.web_dev') }}</option>
                                     <option value="dashboard">{{ __('messages.business_dashboards') }}</option>
                                     <option value="ui">{{ __('messages.uiux_enhancement') }}</option>
@@ -528,7 +530,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <textarea id="message" required></textarea>
+                                <textarea id="message" required placeholder=" "></textarea>
                                 <label for="message">{{ __('messages.your_message') }}</label>
                                 <i class="fas fa-comment-alt"></i>
                             </div>
@@ -542,12 +544,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="contact-clouds">
-        <div class="contact-cloud"></div>
-        <div class="contact-cloud"></div>
-        <div class="contact-cloud"></div>
     </div>
 </section>
 
@@ -611,7 +607,7 @@
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
-                            +965 65579000
+                            <p><span class="phone-number">+965 65579000</span></p>
                         </li>
                     </ul>
                 </div>
