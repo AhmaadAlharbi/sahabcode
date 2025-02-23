@@ -17,7 +17,8 @@
 
   body {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    /* background: linear-gradient(135deg, var(--primary), var(--secondary)); */
+    background: var(--primary);
     /* overflow: hidden;
     display: grid;
     place-items: center; */
@@ -496,7 +497,8 @@ font-weight: bold;
   min-height: 100vh;
   padding: 8rem 2rem;
   position: relative;
-  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  background: var(--primary);
+
   overflow: hidden;
 }
 
@@ -525,7 +527,7 @@ font-weight: bold;
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr;
   gap: 4rem;
   margin-top: 4rem;
 }
@@ -779,7 +781,7 @@ font-weight: bold;
   .services {
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: var(--primary);
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -911,7 +913,7 @@ font-weight: bold;
   /* start portfolio section */
   .portfolio-atmosphere {
     padding: 8rem 2rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     position: relative;
     overflow: hidden;
     min-height: 100vh;
@@ -1101,7 +1103,7 @@ font-weight: bold;
   /* start testimonials section */
   .testimonials {
     padding: 8rem 2rem;
-    background: linear-gradient(225deg, var(--primary), var(--secondary));
+    background: var(--primary);
     position: relative;
     overflow: hidden;
     min-height: 100vh;
@@ -1324,7 +1326,7 @@ font-weight: bold;
   .contact {
     padding: 8rem 2rem;
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--primary);
     position: relative;
     overflow: hidden;
   }
