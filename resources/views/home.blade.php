@@ -498,9 +498,10 @@
             <div class="contact-form-wrapper">
                 <div class="form-cloud">
                     <form class="contact-form" id="contactForm">
+                        @csrf
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" id="name" required placeholder=" " />
+                                <input type="text" id="name" name="name" required placeholder=" " />
                                 <label for="name">{{ __('messages.your_name') }}</label>
                                 <i class="fas fa-user"></i>
                             </div>
@@ -508,7 +509,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" id="email" required placeholder=" " />
+                                <input type="email" id="email" name="email" required placeholder=" " />
                                 <label for="email">{{ __('messages.your_email') }}</label>
                                 <i class="fas fa-envelope"></i>
                             </div>
@@ -516,7 +517,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <select id="service" required>
+                                <select id="service" name="service" required>
                                     <option value="" disabled selected></option>
                                     <option value="web">{{ __('messages.web_dev') }}</option>
                                     <option value="dashboard">{{ __('messages.business_dashboards') }}</option>
@@ -530,7 +531,7 @@
 
                         <div class="form-group">
                             <div class="input-group">
-                                <textarea id="message" required placeholder=" "></textarea>
+                                <textarea id="message" name="message" required placeholder=" "></textarea>
                                 <label for="message">{{ __('messages.your_message') }}</label>
                                 <i class="fas fa-comment-alt"></i>
                             </div>
@@ -541,6 +542,33 @@
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
+
+                    <script>
+                        document.getElementById("contactForm").addEventListener("submit", function(event) {
+                        event.preventDefault();
+                        
+                        let formData = new FormData(this);
+                        
+                        fetch("{{ route('contact.submit') }}", {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert("Message sent successfully!");
+                                document.getElementById("contactForm").reset();
+                            } else {
+                                alert("Failed to send message. Please try again.");
+                            }
+                        })
+                        .catch(error => console.error("Error:", error));
+                    });
+                    </script>
+
                 </div>
             </div>
         </div>
