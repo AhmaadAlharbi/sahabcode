@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ __('messages.title') }}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    {{--
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
-    @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
-    <link rel="stylesheet" href="{{ asset('css/rtl.css') }}">
-    @endif
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/css/styles.css', 'resources/js/app.js'])
 
 </head>
 
