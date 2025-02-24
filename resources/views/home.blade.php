@@ -654,7 +654,7 @@
 
         <div class="footer-bottom">
             <div class="footer-copyright">
-                <p>&copy; 2024 SahabCode. {{ __('messages.all_rights') }}</p>
+                <p>&copy; {{ date('Y') }} SahabCode. {{ __('messages.all_rights') }}</p>
             </div>
             <div class="footer-legal">
                 <a href="#privacy">{{ __('messages.privacy_policy') }}</a>
