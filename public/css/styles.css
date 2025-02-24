@@ -1487,26 +1487,6 @@
     color: white;
 }
 
-[dir="ltr"] .section-title {
-    font-family: "Jura", sans-serif;
-    font-size: 3rem;
-}
-
-[dir="rtl"] .section-title {
-    font-family: "Zain", sans-serif;
-    font-size: 3.5rem;
-}
-
-[dir="ltr"] .section-subtitle {
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-}
-
-[dir="rtl"] .section-subtitle {
-    font-family: "Tajawal", sans-serif;
-    font-size: 1.4rem;
-}
-
 .contact-details {
     margin: 3rem 0;
 }
@@ -1542,20 +1522,14 @@
     font-size: 1.3rem;
 }
 
-[dir="rtl"] .contact-item h3 {
-    font-family: "Zain", sans-serif;
-    font-size: 1.5rem;
-}
+
 
 [dir="ltr"] .contact-item p {
     font-family: "Poppins", sans-serif;
     font-size: 1.1rem;
 }
 
-[dir="rtl"] .contact-item p {
-    font-family: "Tajawal", sans-serif;
-    font-size: 1.2rem;
-}
+
 
 /* Form Styles */
 .form-cloud {
@@ -1595,13 +1569,7 @@
     font-size: 1.1rem;
 }
 
-[dir="rtl"] .input-group input,
-[dir="rtl"] .input-group select,
-[dir="rtl"] .input-group textarea {
-    font-family: "Tajawal", sans-serif;
-    font-size: 1.2rem;
-    padding: 1.2rem 3rem 1.2rem 1rem;
-}
+
 
 .input-group textarea {
     height: 150px;
@@ -1623,11 +1591,7 @@
     font-size: 1.1rem;
 }
 
-[dir="rtl"] .input-group label {
-    right: 3rem;
-    font-family: "Tajawal", sans-serif;
-    font-size: 1.2rem;
-}
+
 
 .input-group textarea ~ label {
     top: 1.5rem;
@@ -1646,9 +1610,6 @@
     left: 1rem;
 }
 
-[dir="rtl"] .input-group i {
-    right: 1rem;
-}
 
 .input-group textarea ~ i {
     top: 1.5rem;
@@ -1686,14 +1647,7 @@
     left: 1rem;
 }
 
-[dir="rtl"] .input-group input:not(:placeholder-shown) ~ label,
-[dir="rtl"] .input-group select:valid ~ label,
-[dir="rtl"] .input-group textarea:not(:placeholder-shown) ~ label,
-[dir="rtl"] .input-group input:focus ~ label,
-[dir="rtl"] .input-group select:focus ~ label,
-[dir="rtl"] .input-group textarea:focus ~ label {
-    right: 1rem;
-}
+
 
 /* Submit Button */
 .submit-btn {

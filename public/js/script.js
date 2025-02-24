@@ -17,6 +17,16 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// Add this new code to handle link clicks
+const links = document.querySelectorAll(".nav-links a");
+links.forEach((link) => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.querySelector("i").classList.add("fa-bars");
+        menuBtn.querySelector("i").classList.remove("fa-times");
+    });
+});
+
 function createRain() {
     const rain = document.getElementById("rain");
     const dropCount = 50;
