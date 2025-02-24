@@ -253,3 +253,92 @@ body {
   unicode-bidi: embed;
   display: inline-block;
 }
+
+[dir="ltr"] .section-title {
+    font-family: "Jura", sans-serif;
+    font-size: 3rem;
+}
+[dir="rtl"] .section-title {
+    font-family: "Zain", sans-serif;
+    font-size: 3.5rem;
+}
+[dir="ltr"] .section-subtitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+}
+
+[dir="rtl"] .section-subtitle {
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.4rem;
+}
+[dir="rtl"] .input-group {
+    position: relative;
+}
+
+[dir="rtl"] .input-group input,
+[dir="rtl"] .input-group select,
+[dir="rtl"] .input-group textarea {
+    width: 100%;
+    padding: 1.2rem 3rem 1.2rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.2rem;
+}
+
+[dir="rtl"] .input-group label {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family: "Tajawal", sans-serif;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
+
+[dir="rtl"] .input-group textarea ~ label {
+    top: 1.5rem;
+    transform: none;
+}
+
+[dir="rtl"] .input-group i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+}
+
+[dir="rtl"] .input-group textarea ~ i {
+    top: 1.5rem;
+    transform: none;
+}
+
+/* Form Focus & Fill States for RTL */
+[dir="rtl"] .input-group input:focus,
+[dir="rtl"] .input-group select:focus,
+[dir="rtl"] .input-group textarea:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent);
+}
+
+[dir="rtl"] .input-group input:not(:placeholder-shown) ~ label,
+[dir="rtl"] .input-group select:valid ~ label,
+[dir="rtl"] .input-group textarea:not(:placeholder-shown) ~ label,
+[dir="rtl"] .input-group input:focus ~ label,
+[dir="rtl"] .input-group select:focus ~ label,
+[dir="rtl"] .input-group textarea:focus ~ label {
+    top: -0.8rem;
+    right: 1rem;
+    font-size: 0.9rem;
+    color: var(--accent);
+    background: rgba(59, 130, 246, 0.95);
+    border-radius: 4px;
+}

@@ -653,7 +653,7 @@
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 4rem;
   margin-top: 4rem;
 }

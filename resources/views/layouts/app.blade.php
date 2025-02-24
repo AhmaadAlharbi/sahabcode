@@ -10,6 +10,8 @@
     @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
     <link rel="stylesheet" href="{{ asset('css/rtl.css') }}">
     @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
 <body>

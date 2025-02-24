@@ -58,11 +58,11 @@
         <p class="section-subtitle">{{ __('messages.about_subtitle') }}</p>
 
         <div class="about-content">
-            {{-- <div class="about-image">
+            <div class="about-image">
                 <div class="profile-cloud">
                     <i class="fas fa-user-circle"></i>
                 </div>
-            </div> --}}
+            </div>
 
             <div class="about-text">
                 <div class="about-card">
