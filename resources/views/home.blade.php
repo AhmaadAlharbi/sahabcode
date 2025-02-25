@@ -2,166 +2,247 @@
 
 @section('content')
 <!-- Hero Section -->
-<div class="container">
-    <div class="content">
-        <h1 class="title">{{ __('messages.main_title') }}</h1>
-        <p class="subtitle">{{ __('messages.subtitle') }}</p>
-        <div class="cta-container">
-            <a href="#work" class="cta-button primary">
-                <span class="button-content">
-                    <i class="fas fa-eye"></i>
-                    <span>{{ __('messages.view_work') }}</span>
-                </span>
-            </a>
-            <a href="#contact" class="cta-button secondary">
-                <span class="button-content">
-                    <i class="fas fa-rocket"></i>
-                    <span>{{ __('messages.get_started') }}</span>
-                </span>
-            </a>
+<!-- Enhanced Hero Section -->
+<section class="enhanced-hero">
+    <div class="hero-bg-elements">
+        <!-- Dynamic clouds will be added via JS -->
+        <div class="floating-clouds" id="floating-clouds"></div>
+        <div class="rain-container" id="rain-container"></div>
+
+        <!-- Cloud clusters -->
+        <div class="cloud-clusters">
+            <div class="cloud-cluster cluster-1">
+                <i class="fas fa-cloud cloud-large"></i>
+                <i class="fas fa-cloud cloud-medium"></i>
+                <i class="fas fa-cloud cloud-small"></i>
+            </div>
+            <div class="cloud-cluster cluster-2">
+                <i class="fas fa-cloud cloud-large"></i>
+                <i class="fas fa-cloud cloud-medium"></i>
+                <i class="fas fa-cloud cloud-small"></i>
+            </div>
+            <div class="cloud-cluster cluster-3">
+                <i class="fas fa-cloud cloud-large"></i>
+                <i class="fas fa-cloud cloud-medium"></i>
+                <i class="fas fa-cloud cloud-small"></i>
+            </div>
+            <div class="cloud-cluster cluster-4">
+                <i class="fas fa-cloud cloud-large"></i>
+                <i class="fas fa-cloud cloud-medium"></i>
+                <i class="fas fa-cloud cloud-small"></i>
+            </div>
         </div>
     </div>
-    <div class="scene">
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
+
+    <div class="hero-content-wrapper">
+        <div class="hero-content">
+            <div class="logo-cloud">
+                <i class="fas fa-cloud"></i>
+            </div>
+            <h1 class="hero-title">{{ __('messages.main_title') }}</h1>
+            <p class="hero-subtitle">{{ __('messages.subtitle') }}</p>
+            <div class="hero-cta-container">
+                <a href="#work" class="hero-cta-button primary">
+                    <span class="button-content">
+                        <i class="fas fa-eye"></i>
+                        <span>{{ __('messages.view_work') }}</span>
+                    </span>
+                </a>
+                <a href="#contact" class="hero-cta-button secondary">
+                    <span class="button-content">
+                        <i class="fas fa-rocket"></i>
+                        <span>{{ __('messages.get_started') }}</span>
+                    </span>
+                </a>
+            </div>
         </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="cloud">
-            <i class="fas fa-cloud"></i>
-        </div>
-        <div class="rain" id="rain"></div>
     </div>
-</div>
+
+    <!-- Animated foreground clouds -->
+    <div class="foreground-clouds">
+        <div class="fg-cloud fg-cloud-1">
+            <i class="fas fa-cloud"></i>
+        </div>
+        <div class="fg-cloud fg-cloud-2">
+            <i class="fas fa-cloud"></i>
+        </div>
+        <div class="fg-cloud fg-cloud-3">
+            <i class="fas fa-cloud"></i>
+        </div>
+        <div class="fg-cloud fg-cloud-4">
+            <i class="fas fa-cloud"></i>
+        </div>
+        <div class="fg-cloud fg-cloud-5">
+            <i class="fas fa-cloud"></i>
+        </div>
+        <div class="fg-cloud fg-cloud-6">
+            <i class="fas fa-cloud-sun"></i>
+        </div>
+    </div>
+
+    <!-- Rain toggle button -->
+    <button class="weather-toggle" id="weather-toggle" aria-label="Toggle rain effect">
+        <i class="fas fa-cloud-sun"></i>
+    </button>
+</section>
+
 
 <!-- About Section -->
 <!-- About Section -->
-<section id="about" class="about">
+<!-- Enhanced About Section -->
+<section id="about" class="enhanced-about">
+    <!-- Cloud ambiance background -->
+    <div class="about-atmosphere">
+        <div class="atmosphere-layer back-layer"></div>
+        <div class="atmosphere-layer middle-layer"></div>
+        <div class="atmosphere-layer front-layer"></div>
+    </div>
+
     <div class="about-container">
-        <h2 class="section-title">{{ __('messages.about_title') }}</h2>
+        <div class="section-clouds">
+            <div class="section-cloud left-cloud">
+                <i class="fas fa-cloud"></i>
+            </div>
+            <h2 class="section-title">{{ __('messages.about_title') }}</h2>
+            <div class="section-cloud right-cloud">
+                <i class="fas fa-cloud"></i>
+            </div>
+        </div>
         <p class="section-subtitle">{{ __('messages.about_subtitle') }}</p>
 
         <div class="about-content">
-            <div class="about-image">
-                <div class="profile-cloud">
-                    <i class="fas fa-user-circle"></i>
+            <!-- Profile Section with Cloud Animation -->
+            <div class="about-profile">
+                <div class="profile-cloud-container">
+                    <div class="profile-cloud-ring outer-ring"></div>
+                    <div class="profile-cloud-ring middle-ring"></div>
+                    <div class="profile-cloud">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="mini-clouds">
+                            <i class="fas fa-cloud mini-cloud mc-1"></i>
+                            <i class="fas fa-cloud mini-cloud mc-2"></i>
+                            <i class="fas fa-cloud mini-cloud mc-3"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="about-text">
+            <!-- About Text with Enhanced Cards -->
+            <div class="about-details">
                 <div class="about-card">
+                    <div class="card-cloud-corner top-left">
+                        <i class="fas fa-cloud"></i>
+                    </div>
                     <h3>{{ __('messages.who_i_am') }}</h3>
                     <p>{{ __('messages.who_i_am_text') }}</p>
+                    <div class="card-cloud-corner bottom-right">
+                        <i class="fas fa-cloud"></i>
+                    </div>
                 </div>
 
                 <div class="about-card">
+                    <div class="card-cloud-corner top-right">
+                        <i class="fas fa-cloud"></i>
+                    </div>
                     <h3>{{ __('messages.my_approach') }}</h3>
                     <p>{{ __('messages.my_approach_text') }}</p>
+                    <div class="card-cloud-corner bottom-left">
+                        <i class="fas fa-cloud"></i>
+                    </div>
                 </div>
 
-                <div class="expertise-clouds">
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-html5 skill-icon"></i>
-                                <span>HTML5</span>
+                <!-- Enhanced Skills Cloud Formation -->
+                <div class="skills-cloudscape">
+                    <h3 class="skills-title">Skills & Expertise</h3>
+
+                    <div class="cloud-formation">
+                        <div class="cloud-skill" data-skill="HTML5">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-html5 skill-icon"></i>
+                                    <span>HTML5</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-css3-alt skill-icon"></i>
-                                <span>CSS</span>
+                        <div class="cloud-skill" data-skill="CSS">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-css3-alt skill-icon"></i>
+                                    <span>CSS</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-js skill-icon"></i>
-                                <span>JavaScript</span>
+                        <div class="cloud-skill" data-skill="JavaScript">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-js skill-icon"></i>
+                                    <span>JavaScript</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-php skill-icon"></i>
-                                <span>PHP</span>
+                        <div class="cloud-skill" data-skill="PHP">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-php skill-icon"></i>
+                                    <span>PHP</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-laravel skill-icon"></i>
-                                <span>Laravel</span>
+                        <div class="cloud-skill" data-skill="Laravel">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-laravel skill-icon"></i>
+                                    <span>Laravel</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-vuejs skill-icon"></i>
-                                <span>Vue JS</span>
+                        <div class="cloud-skill" data-skill="Vue">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-vuejs skill-icon"></i>
+                                    <span>Vue JS</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-bootstrap skill-icon"></i>
-                                <span>Bootstrap</span>
+                        <div class="cloud-skill" data-skill="Bootstrap">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-bootstrap skill-icon"></i>
+                                    <span>Bootstrap</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span>MYSQL</span>
+                        <div class="cloud-skill" data-skill="MySQL">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fas fa-database skill-icon"></i>
+                                    <span>MySQL</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="cloud-skill">
-                        <div class="cloud-shape">
-                            <i class="fas fa-cloud cloud-bg"></i>
-                            <div class="skill-content">
-                                <i class="fab fa-git-alt skill-icon"></i>
-                                <span>Git</span>
+                        <div class="cloud-skill" data-skill="Git">
+                            <div class="cloud-wrapper">
+                                <i class="fas fa-cloud skill-cloud"></i>
+                                <div class="skill-content">
+                                    <i class="fab fa-git-alt skill-icon"></i>
+                                    <span>Git</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,12 +251,211 @@
         </div>
     </div>
 
-    <div class="about-background">
-        <div class="floating-cloud"></div>
-        <div class="floating-cloud"></div>
-        <div class="floating-cloud"></div>
+    <!-- Animated cloud divider -->
+    <div class="cloud-divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="white" fill-opacity="0.05"
+                d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
     </div>
 </section>
+<script>
+    // Enhanced About Section Animations
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize enhanced about animations
+    initEnhancedAbout();
+});
+
+function initEnhancedAbout() {
+    // Add cloud particles
+    createCloudParticles();
+    
+    // Initialize 3D effect for skills
+    initSkills3DEffect();
+    
+    // Add parallax effect to about cards
+    initAboutCardParallax();
+}
+
+// Create and animate small cloud particles in the background
+function createCloudParticles() {
+    const section = document.querySelector('.enhanced-about');
+    if (!section) return;
+    
+    // Create a container for cloud particles
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'cloud-particles';
+    particlesContainer.style.position = 'absolute';
+    particlesContainer.style.top = '0';
+    particlesContainer.style.left = '0';
+    particlesContainer.style.width = '100%';
+    particlesContainer.style.height = '100%';
+    particlesContainer.style.overflow = 'hidden';
+    particlesContainer.style.pointerEvents = 'none';
+    particlesContainer.style.zIndex = '2';
+    
+    section.appendChild(particlesContainer);
+    
+    // Create cloud particles
+    const particleCount = 20;
+    for (let i = 0; i < particleCount; i++) {
+        createCloudParticle(particlesContainer);
+    }
+}
+
+function createCloudParticle(container) {
+    const particle = document.createElement('i');
+    particle.className = 'fas fa-cloud';
+    particle.style.position = 'absolute';
+    particle.style.color = 'rgba(255, 255, 255, 0.05)';
+    
+    // Random size
+    const size = Math.random() * 2 + 0.5; // 0.5rem to 2.5rem
+    particle.style.fontSize = `${size}rem`;
+    
+    // Random position
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
+    
+    // Random animation
+    const duration = Math.random() * 40 + 20; // 20-60s
+    const delay = Math.random() * -30;
+    
+    // Create animation path
+    const startX = posX;
+    const startY = posY;
+    const endX = startX + (Math.random() * 30 - 15);
+    const endY = startY + (Math.random() * 30 - 15);
+    
+    // Apply the animation
+    particle.style.animation = `floatParticle ${duration}s ease-in-out infinite ${delay}s`;
+    
+    // Add keyframes for this specific particle
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+            25% { transform: translate(${Math.random() * 30}px, ${Math.random() * -30}px) rotate(${Math.random() * 20}deg); opacity: 0.7; }
+            50% { transform: translate(${Math.random() * 50}px, ${Math.random() * -10}px) rotate(${Math.random() * 40}deg); opacity: 0.5; }
+            75% { transform: translate(${Math.random() * 30}px, ${Math.random() * 20}px) rotate(${Math.random() * 20}deg); opacity: 0.7; }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    container.appendChild(particle);
+    
+    // Replace the particle after its animation duration (optional)
+    setTimeout(() => {
+        if (container.contains(particle)) {
+            container.removeChild(particle);
+            createCloudParticle(container);
+        }
+    }, duration * 1000);
+}
+
+// Initialize 3D tilt effect for skill clouds
+function initSkills3DEffect() {
+    const skillItems = document.querySelectorAll('.cloud-skill');
+    
+    skillItems.forEach(item => {
+        const wrapper = item.querySelector('.cloud-wrapper');
+        const cloud = item.querySelector('.skill-cloud');
+        const content = item.querySelector('.skill-content');
+        
+        // Add 3D tilt effect on mouse move
+        item.addEventListener('mousemove', (e) => {
+            const itemRect = item.getBoundingClientRect();
+            const itemCenterX = itemRect.left + itemRect.width / 2;
+            const itemCenterY = itemRect.top + itemRect.height / 2;
+            
+            // Calculate mouse position relative to the center (-1 to 1)
+            const mouseX = (e.clientX - itemCenterX) / (itemRect.width / 2);
+            const mouseY = (e.clientY - itemCenterY) / (itemRect.height / 2);
+            
+            // Apply rotation based on mouse position
+            wrapper.style.transform = `rotateX(${mouseY * -10}deg) rotateY(${mouseX * 10}deg) translateY(-10px)`;
+            cloud.style.transform = `translateZ(-10px) scale(${1 + Math.abs(mouseX) * 0.1 + Math.abs(mouseY) * 0.1})`;
+            content.style.transform = `translateZ(30px)`;
+        });
+        
+        // Reset on mouse leave
+        item.addEventListener('mouseleave', () => {
+            wrapper.style.transform = '';
+            cloud.style.transform = 'translateZ(-10px)';
+            content.style.transform = 'translateZ(20px)';
+        });
+    });
+}
+
+// Add parallax effect to about cards
+function initAboutCardParallax() {
+    const aboutCards = document.querySelectorAll('.about-card');
+    
+    aboutCards.forEach(card => {
+        const cornerClouds = card.querySelectorAll('.card-cloud-corner');
+        
+        card.addEventListener('mousemove', (e) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+            
+            // Calculate mouse position relative to the center (-1 to 1)
+            const mouseX = (e.clientX - cardCenterX) / (cardRect.width / 2);
+            const mouseY = (e.clientY - cardCenterY) / (cardRect.height / 2);
+            
+            // Move corner clouds based on mouse position
+            cornerClouds.forEach(cloud => {
+                const isLeft = cloud.classList.contains('top-left') || cloud.classList.contains('bottom-left');
+                const isTop = cloud.classList.contains('top-left') || cloud.classList.contains('top-right');
+                
+                const xDirection = isLeft ? -1 : 1;
+                const yDirection = isTop ? -1 : 1;
+                
+                cloud.style.transform = `
+                    translate(${mouseX * 10 * xDirection}px, ${mouseY * 10 * yDirection}px)
+                    scale(1.1)
+                    rotate(${mouseX * 5}deg)
+                `;
+            });
+        });
+        
+        // Reset on mouse leave
+        card.addEventListener('mouseleave', () => {
+            cornerClouds.forEach(cloud => {
+                cloud.style.transform = '';
+            });
+        });
+    });
+}
+
+// Add scroll animation for the profile section
+window.addEventListener('scroll', () => {
+    const profileSection = document.querySelector('.about-profile');
+    if (!profileSection) return;
+    
+    const scrollPosition = window.scrollY;
+    const section = document.querySelector('.enhanced-about');
+    const sectionTop = section.offsetTop;
+    
+    // Calculate how far into the section we've scrolled (0 to 1)
+    const scrollProgress = Math.max(0, Math.min(1, 
+        (scrollPosition - sectionTop + window.innerHeight / 2) / 
+        (section.offsetHeight + window.innerHeight / 2)
+    ));
+    
+    // Apply rotation to rings based on scroll
+    const outerRing = document.querySelector('.outer-ring');
+    const middleRing = document.querySelector('.middle-ring');
+    
+    if (outerRing && middleRing) {
+        outerRing.style.transform = `rotate(${scrollProgress * 180}deg)`;
+        middleRing.style.transform = `rotate(${-scrollProgress * 180}deg)`;
+    }
+});
+</script>
 
 <!-- Services Section -->
 <section class="services" id="services">

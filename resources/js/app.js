@@ -1,5 +1,327 @@
 import "./bootstrap";
+// Enhanced Hero Section Animations
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize enhanced hero animations
+    initEnhancedHero();
+});
 
+function initEnhancedHero() {
+    // Create dynamic floating clouds with better distribution
+    createFloatingClouds();
+
+    // Create enhanced rain effect - enabled by default
+    createEnhancedRain(true);
+
+    // Initialize weather toggle - set to rainy by default
+    initWeatherToggle(true);
+
+    // Parallax effect on scroll
+    initParallaxEffect();
+
+    // Add extra cloud animations
+    animateCloudClusters();
+}
+
+// Create multiple floating clouds with random sizes and positions
+function createFloatingClouds() {
+    const cloudContainer = document.getElementById("floating-clouds");
+    if (!cloudContainer) return;
+
+    const cloudCount = 25; // Adjusted number of clouds
+
+    // Create a grid system to better distribute clouds and avoid merging
+    const gridSize = 5; // 5x5 grid
+    const grid = [];
+    for (let i = 0; i < gridSize; i++) {
+        grid[i] = [];
+        for (let j = 0; j < gridSize; j++) {
+            grid[i][j] = false; // false means cell is empty
+        }
+    }
+
+    for (let i = 0; i < cloudCount; i++) {
+        const cloud = document.createElement("div");
+        cloud.className = "floating-cloud";
+
+        // Create cloud icon - randomly choose between different cloud icons
+        const cloudIcon = document.createElement("i");
+
+        // Add variety with different cloud icons
+        const cloudTypes = [
+            "fa-cloud",
+            "fa-cloud",
+            "fa-cloud",
+            "fa-cloud-meatball",
+            "fa-cloud",
+        ];
+        const randomCloudType =
+            cloudTypes[Math.floor(Math.random() * cloudTypes.length)];
+        cloudIcon.className = `fas ${randomCloudType}`;
+
+        cloud.appendChild(cloudIcon);
+
+        // Find an empty cell in the grid
+        let gridX, gridY;
+        let attempts = 0;
+
+        do {
+            gridX = Math.floor(Math.random() * gridSize);
+            gridY = Math.floor(Math.random() * gridSize);
+            attempts++;
+
+            // After many attempts, force placement
+            if (attempts > 20) break;
+        } while (grid[gridX][gridY]);
+
+        grid[gridX][gridY] = true; // Mark cell as occupied
+
+        // Calculate position based on grid
+        const baseX = (gridX / gridSize) * 100;
+        const baseY = (gridY / gridSize) * 100;
+
+        // Add small randomness within the cell
+        const posX = baseX + (Math.random() * 15 - 7.5);
+        const posY = baseY + (Math.random() * 15 - 7.5);
+
+        // Set random properties
+        const size = Math.random() * 5 + 3; // Adjusted size between 3-8rem
+        const opacity = Math.random() * 0.2 + 0.1;
+        const animDuration = Math.random() * 20 + 30;
+        const animDelay = Math.random() * -30;
+
+        // Apply styles
+        cloudIcon.style.fontSize = `${size}rem`;
+        cloud.style.left = `${posX}%`;
+        cloud.style.top = `${posY}%`;
+        cloud.style.opacity = opacity;
+        cloud.style.animation = `floatCloud ${animDuration}s ease-in-out infinite`;
+        cloud.style.animationDelay = `${animDelay}s`;
+
+        // Add to container
+        cloudContainer.appendChild(cloud);
+    }
+}
+
+// Create improved rain effect with option to show/hide
+function createEnhancedRain(isVisible = true) {
+    const rainContainer = document.getElementById("rain-container");
+    if (!rainContainer) return;
+
+    const rainCount = 100; // Increased number of raindrops
+
+    // Clear any existing rain
+    rainContainer.innerHTML = "";
+
+    // Set initial visibility
+    rainContainer.style.opacity = isVisible ? "1" : "0";
+    rainContainer.style.transition = "opacity 0.5s ease";
+
+    for (let i = 0; i < rainCount; i++) {
+        const drop = document.createElement("div");
+        drop.className = "rain-drop";
+
+        // Set random properties
+        const posX = Math.random() * 100; // Random horizontal position
+        const height = Math.random() * 40 + 20; // Random height (20-60px)
+        const duration = Math.random() * 0.7 + 0.8; // Random animation duration (0.8-1.5s)
+        const delay = Math.random() * 2; // Random delay
+        const opacity = Math.random() * 0.3 + 0.1; // Random opacity
+        const width = Math.random() * 2 + 1; // Varying widths for raindrops (1-3px)
+
+        // Apply styles
+        drop.style.left = `${posX}%`;
+        drop.style.height = `${height}px`;
+        drop.style.width = `${width}px`;
+        drop.style.opacity = opacity;
+        drop.style.animation = `rainDrop ${duration}s linear infinite`;
+        drop.style.animationDelay = `${delay}s`;
+
+        // Add to container
+        rainContainer.appendChild(drop);
+    }
+
+    return rainContainer;
+}
+
+// Initialize parallax effect for clouds and content
+function initParallaxEffect() {
+    window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY;
+
+        // Only apply parallax if we're at or near the hero section
+        if (scrollPosition < window.innerHeight * 1.5) {
+            // Move foreground clouds
+            const foregroundClouds = document.querySelectorAll(".fg-cloud");
+            foregroundClouds.forEach((cloud) => {
+                const speed = 0.05;
+                const yPos = scrollPosition * speed;
+                cloud.style.transform = `translateY(${yPos}px)`;
+            });
+
+            // Subtle effect on the hero content
+            const heroContent = document.querySelector(".hero-content");
+            if (heroContent) {
+                const contentSpeed = 0.2;
+                const contentYPos = scrollPosition * contentSpeed;
+                heroContent.style.transform = `translateY(${contentYPos}px)`;
+            }
+        }
+    });
+
+    // Add hover effect to floating clouds
+    const floatingClouds = document.querySelectorAll(".floating-cloud");
+    floatingClouds.forEach((cloud) => {
+        cloud.addEventListener("mouseenter", function () {
+            // Pause animation and slightly grow on hover
+            this.style.animationPlayState = "paused";
+            this.style.transform = "scale(1.1)";
+            this.style.opacity = parseFloat(this.style.opacity) + 0.1;
+            this.style.transition = "all 0.3s ease";
+        });
+
+        cloud.addEventListener("mouseleave", function () {
+            // Resume animation and return to original size
+            this.style.animationPlayState = "running";
+            this.style.transform = "scale(1)";
+            this.style.opacity = parseFloat(this.style.opacity) - 0.1;
+        });
+    });
+}
+
+// Add new functions to enhance the cloud theme
+
+// Animate the cloud clusters for a more dynamic feel
+function animateCloudClusters() {
+    const clusters = document.querySelectorAll(".cloud-cluster");
+
+    clusters.forEach((cluster) => {
+        // Add mouse interaction
+        cluster.addEventListener("mouseenter", () => {
+            const clouds = cluster.querySelectorAll("i");
+            clouds.forEach((cloud) => {
+                cloud.style.transform = "scale(1.1)";
+                cloud.style.filter =
+                    "drop-shadow(0 0 15px rgba(255, 255, 255, 0.3))";
+            });
+        });
+
+        cluster.addEventListener("mouseleave", () => {
+            const clouds = cluster.querySelectorAll("i");
+            clouds.forEach((cloud) => {
+                cloud.style.transform = "scale(1)";
+                cloud.style.filter =
+                    "drop-shadow(0 0 10px rgba(255, 255, 255, 0.1))";
+            });
+        });
+    });
+}
+
+// Initialize weather toggle functionality
+function initWeatherToggle(isRainingDefault = true) {
+    const toggleBtn = document.getElementById("weather-toggle");
+    const rainContainer = document.getElementById("rain-container");
+    const heroSection = document.querySelector(".enhanced-hero");
+
+    if (!toggleBtn || !rainContainer || !heroSection) return;
+
+    let isRaining = isRainingDefault;
+
+    // Set initial state
+    if (isRaining) {
+        rainContainer.style.opacity = "1";
+        toggleBtn.innerHTML = '<i class="fas fa-cloud-sun"></i>';
+        heroSection.style.background =
+            "linear-gradient(135deg, var(--primary), #1a4694);";
+        addLightningEffect();
+    } else {
+        rainContainer.style.opacity = "0";
+        toggleBtn.innerHTML = '<i class="fas fa-cloud-rain"></i>';
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        isRaining = !isRaining;
+
+        // Toggle rain visibility
+        rainContainer.style.opacity = isRaining ? "1" : "0";
+
+        // Change button icon
+        toggleBtn.innerHTML = isRaining
+            ? '<i class="fas fa-cloud-sun"></i>'
+            : '<i class="fas fa-cloud-rain"></i>';
+
+        // Add lightning effect when raining
+        if (isRaining) {
+            // Make background slightly darker when raining
+            heroSection.style.background =
+                "linear-gradient(135deg, var(--primary), #1a4694)";
+            addLightningEffect();
+        } else {
+            // Restore original background
+            heroSection.style.background =
+                "linear-gradient(135deg, var(--primary), #1a4694)";
+            // Remove lightning overlay if exists
+            const overlay = document.querySelector(".lightning-overlay");
+            if (overlay) overlay.remove();
+        }
+    });
+}
+
+// Add a subtle lightning effect occasionally
+function addLightningEffect() {
+    const heroSection = document.querySelector(".enhanced-hero");
+    if (!heroSection) return;
+
+    // Remove existing lightning overlay if any
+    const existingOverlay = document.querySelector(".lightning-overlay");
+    if (existingOverlay) existingOverlay.remove();
+
+    // Create lightning overlay
+    const lightningOverlay = document.createElement("div");
+    lightningOverlay.className = "lightning-overlay";
+    lightningOverlay.style.position = "absolute";
+    lightningOverlay.style.top = "0";
+    lightningOverlay.style.left = "0";
+    lightningOverlay.style.width = "100%";
+    lightningOverlay.style.height = "100%";
+    lightningOverlay.style.backgroundColor = "rgba(255, 255, 255, 0)";
+    lightningOverlay.style.zIndex = "4";
+    lightningOverlay.style.pointerEvents = "none";
+    lightningOverlay.style.transition = "background-color 0.1s ease";
+
+    heroSection.appendChild(lightningOverlay);
+
+    // Function to create a lightning flash
+    function createLightningFlash() {
+        // Check if we should continue (rain might have been toggled off)
+        if (!document.querySelector(".lightning-overlay")) return;
+
+        lightningOverlay.style.backgroundColor = "rgba(255, 255, 255, 0.2)";
+
+        setTimeout(() => {
+            if (!document.querySelector(".lightning-overlay")) return;
+            lightningOverlay.style.backgroundColor = "rgba(255, 255, 255, 0)";
+
+            setTimeout(() => {
+                if (!document.querySelector(".lightning-overlay")) return;
+                lightningOverlay.style.backgroundColor =
+                    "rgba(255, 255, 255, 0.1)";
+
+                setTimeout(() => {
+                    if (!document.querySelector(".lightning-overlay")) return;
+                    lightningOverlay.style.backgroundColor =
+                        "rgba(255, 255, 255, 0)";
+                }, 50);
+            }, 100);
+        }, 50);
+
+        // Schedule next lightning at random interval
+        const nextLightning = Math.random() * 10000 + 5000; // 5-15 seconds
+        setTimeout(createLightningFlash, nextLightning);
+    }
+
+    // Start lightning effect after a delay
+    setTimeout(createLightningFlash, Math.random() * 5000 + 3000);
+}
 // Mobile menu toggle
 const menuBtn = document.querySelector(".menu-btn");
 const navLinks = document.querySelector(".nav-links");
