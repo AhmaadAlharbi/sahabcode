@@ -323,48 +323,138 @@ function addLightningEffect() {
     setTimeout(createLightningFlash, Math.random() * 5000 + 3000);
 }
 // Mobile menu toggle
-const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+// Cloud Navbar JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+    // Elements
+    const navbar = document.querySelector(".cloud-navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelectorAll(".nav-link");
 
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuBtn.querySelector("i").classList.toggle("fa-bars");
-    menuBtn.querySelector("i").classList.toggle("fa-times");
-});
-
-// Close menu when clicking outside
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".navbar")) {
-        navLinks.classList.remove("active");
-        menuBtn.querySelector("i").classList.add("fa-bars");
-        menuBtn.querySelector("i").classList.remove("fa-times");
+    // Throttle function to improve scroll performance
+    function throttle(callback, delay) {
+        let timeout = null;
+        return function () {
+            if (!timeout) {
+                timeout = setTimeout(function () {
+                    callback.call();
+                    timeout = null;
+                }, delay);
+            }
+        };
     }
-});
 
-// Add this new code to handle link clicks
-const links = document.querySelectorAll(".nav-links a");
-links.forEach((link) => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-        menuBtn.querySelector("i").classList.add("fa-bars");
-        menuBtn.querySelector("i").classList.remove("fa-times");
+    // Handle scroll behavior with throttling for better performance
+    const handleScroll = throttle(function () {
+        if (window.scrollY > 50) {
+            if (!navbar.classList.contains("scrolled")) {
+                navbar.classList.add("scrolled");
+            }
+        } else {
+            if (navbar.classList.contains("scrolled")) {
+                navbar.classList.remove("scrolled");
+            }
+        }
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Check initial scroll position
+    handleScroll();
+
+    // Function to toggle menu state
+    function toggleMenu(open = null) {
+        if (open === null) {
+            // Toggle if no state specified
+            document.body.classList.toggle("menu-open");
+        } else if (open === true) {
+            document.body.classList.add("menu-open");
+        } else {
+            document.body.classList.remove("menu-open");
+        }
+
+        // Update overflow
+        document.body.style.overflow = document.body.classList.contains(
+            "menu-open"
+        )
+            ? "hidden"
+            : "";
+    }
+
+    // Mobile menu toggle
+    menuBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        toggleMenu();
     });
-});
 
-function createRain() {
-    const rain = document.getElementById("rain");
-    const dropCount = 50;
+    // Close menu when clicking a link
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+            toggleMenu(false);
+        });
+    });
 
-    for (let i = 0; i < dropCount; i++) {
-        const drop = document.createElement("div");
-        drop.className = "drop";
-        drop.style.left = Math.random() * 100 + "%";
-        drop.style.animationDelay = Math.random() * 2 + "s";
-        drop.style.opacity = Math.random();
-        rain.appendChild(drop);
+    // Close menu when clicking outside
+    document.addEventListener("click", function (e) {
+        if (
+            document.body.classList.contains("menu-open") &&
+            !e.target.closest(".nav-links") &&
+            !e.target.closest(".menu-btn")
+        ) {
+            toggleMenu(false);
+        }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener("keydown", function (e) {
+        if (
+            e.key === "Escape" &&
+            document.body.classList.contains("menu-open")
+        ) {
+            toggleMenu(false);
+        }
+    });
+
+    // Handle resize events
+    window.addEventListener("resize", function () {
+        if (
+            window.innerWidth > 768 &&
+            document.body.classList.contains("menu-open")
+        ) {
+            toggleMenu(false);
+        }
+    });
+
+    // Add active state to current section link
+    function setActiveNavLink() {
+        const sections = document.querySelectorAll("section[id]");
+        const scrollPosition = window.scrollY + 100;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+
+            const navLink = document.querySelector(
+                `.nav-link[href="#${sectionId}"]`
+            );
+
+            if (
+                navLink &&
+                scrollPosition >= sectionTop &&
+                scrollPosition < sectionTop + sectionHeight
+            ) {
+                navLinks.forEach((link) => link.classList.remove("active"));
+                navLink.classList.add("active");
+            }
+        });
     }
-}
 
+    // Update active link on scroll (throttled)
+    window.addEventListener("scroll", throttle(setActiveNavLink, 200));
+
+    // Set initial active link
+    setTimeout(setActiveNavLink, 100);
+});
 createRain();
 
 // services section
