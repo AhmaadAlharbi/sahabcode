@@ -11,57 +11,56 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo">
-            <i class="fas fa-cloud"></i>
-            @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
-            سحاب كود
-            @else
-            SahabCode
-            @endif
-        </a>
-
-        <!-- Desktop Language Switcher -->
-        {{-- <div class="language-switcher desktop-lang">
-            @php
-            $currentLocale = LaravelLocalization::getCurrentLocale();
-            $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
-            $alternateProperties = LaravelLocalization::getSupportedLocales()[$alternateLocale];
-            @endphp
-
-            <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}" class="lang-link">
-                <i class="fas fa-globe"></i>
-                {{ $alternateProperties['native'] }}
-            </a>
-        </div> --}}
-
-        <div class="nav-links">
-            <!-- Mobile Language Switcher (appears at top of menu) -->
-
-
-            <a href="#" class="nav-link">{{ __('messages.home') }}</a>
-            <a href="#services" class="nav-link">{{ __('messages.services') }}</a>
-            <a href="#work" class="nav-link">{{ __('messages.work') }}</a>
-            <a href="#about" class="nav-link">{{ __('messages.about') }}</a>
-            <a href="#contact" class="nav-link">{{ __('messages.contact') }}</a>
-            <div class="language-switcher">
-                @php
-                $currentLocale = LaravelLocalization::getCurrentLocale();
-                $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
-                $alternateProperties = LaravelLocalization::getSupportedLocales()[$alternateLocale];
-                @endphp
-
-                <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}"
-                    class="lang-link">
-                    <i class="fas fa-globe"></i>
-                    {{ $alternateProperties['native'] }}
-                </a>
-            </div>
+    <!-- Cloud-Themed Navbar -->
+    <nav class="cloud-navbar">
+        <div class="navbar-cloud-bg">
+            <div class="navbar-cloud"></div>
         </div>
 
-        <button class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <div class="logo-cloud">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <span class="logo-text">
+                    @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl')
+                    سحاب كود
+                    @else
+                    SahabCode
+                    @endif
+                </span>
+            </a>
+
+            <div class="nav-links">
+                <div class="nav-links-cloud">
+                    <a href="#" class="nav-link">{{ __('messages.home') }}</a>
+                    <a href="#about" class="nav-link">{{ __('messages.about') }}</a>
+
+                    <a href="#services" class="nav-link">{{ __('messages.services') }}</a>
+                    <a href="#work" class="nav-link">{{ __('messages.work') }}</a>
+                    <a href="#contact" class="nav-link">{{ __('messages.contact') }}</a>
+
+                    <div class="language-switcher">
+                        @php
+                        $currentLocale = LaravelLocalization::getCurrentLocale();
+                        $alternateLocale = $currentLocale === 'en' ? 'ar' : 'en';
+                        $alternateProperties = LaravelLocalization::getSupportedLocales()[$alternateLocale];
+                        @endphp
+
+                        <a href="{{ LaravelLocalization::getLocalizedURL($alternateLocale, null, [], true) }}"
+                            class="lang-link">
+                            <i class="fas fa-globe"></i>
+                            <span>{{ $alternateProperties['native'] }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars open-icon"></i>
+                <i class="fas fa-times close-icon"></i>
+            </button>
+        </div>
     </nav>
 
     @yield('content')

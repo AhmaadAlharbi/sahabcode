@@ -95,36 +95,11 @@
     <!-- Background Elements (matching hero) -->
     <div class="about-bg-elements">
         <!-- Cloud clusters (like hero section) -->
-        <div class="cloud-clusters">
-            <div class="cloud-cluster cluster-1">
-                <i class="fas fa-cloud cloud-large"></i>
-                <i class="fas fa-cloud cloud-medium"></i>
-                <i class="fas fa-cloud cloud-small"></i>
-            </div>
-            <div class="cloud-cluster cluster-2">
-                <i class="fas fa-cloud cloud-large"></i>
-                <i class="fas fa-cloud cloud-medium"></i>
-                <i class="fas fa-cloud cloud-small"></i>
-            </div>
-            <div class="cloud-cluster cluster-3">
-                <i class="fas fa-cloud cloud-large"></i>
-                <i class="fas fa-cloud cloud-medium"></i>
-                <i class="fas fa-cloud cloud-small"></i>
-            </div>
-        </div>
+
 
         <!-- Floating clouds container -->
         <div class="floating-clouds" id="about-floating-clouds"></div>
 
-        <!-- Foreground clouds -->
-        <div class="foreground-clouds">
-            <div class="fg-cloud fg-cloud-about-1">
-                <i class="fas fa-cloud"></i>
-            </div>
-            <div class="fg-cloud fg-cloud-about-2">
-                <i class="fas fa-cloud"></i>
-            </div>
-        </div>
     </div>
 
     <div class="about-container">
@@ -161,7 +136,6 @@
 
         <!-- Cloud-Focused Skills Section -->
         <div class="skills-section">
-            <h3 class="skills-heading">Technical Expertise</h3>
 
             <div class="skills-cloud-wrapper">
                 <!-- HTML Skill Cloud -->
