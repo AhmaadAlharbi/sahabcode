@@ -4956,13 +4956,45 @@ body.menu-open .cloud-navbar .close-icon {
 }
 
 /* RTL Arrow Direction Fix */
+/* Default: RTL (Arabic, Hebrew, etc.) */
 .control-btn.prev i {
   transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
 }
 
 .control-btn.next i {
   transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
 }
+
+/* Fix for LTR (English, French, etc.) */
+html[dir="ltr"] .control-btn.prev i {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+}
+
+html[dir="ltr"] .control-btn.next i {
+  transform: rotate(0);
+  -webkit-transform: rotate(0);
+  -moz-transform: rotate(0);
+  -ms-transform: rotate(0);
+  -o-transform: rotate(0);
+}
+
+/* Add smooth transition */
+.control-btn i {
+  transition: transform 0.3s ease-in-out;
+}
+
 /* RTL Number Fix */
 [dir="rtl"] .phone-number {
   direction: ltr;
